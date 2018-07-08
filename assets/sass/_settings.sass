@@ -15,8 +15,9 @@ $color_v: #6C16DE
 $c_gray: #9fa3a7
 // $red: rgb(255,136,123)
 $red: #df4c43
+$green: #0c8d35
 $ff_monserat: 'Montserrat', sans-serif
-$ff: 'Gotham Pro', Open Sans, Arial, sans-serif
+$ff: 'Open Sans', Arial, sans-serif
 $ff2: 'Peterburg', Times, serif
 $ff3: 'TTInters', Times, serif
 
@@ -40,6 +41,7 @@ body
 
 a
 	border-bottom: 1px solid transparent
+	cursor: pointer
 	outline: none
 	text-decoration: none
 	-webkit-transition: all .15s
@@ -50,7 +52,7 @@ a
 	// 	color: $blue_light
 	&:hover
 		border-bottom-color: rgba(255, 109, 57, .3)
-		color: $red
+		color: $green
 	&[href^="tel"]
 		border: 0
 
