@@ -1,0 +1,28 @@
+header.header
+	.container
+		.header__logo
+			a.logo(href="/")
+				img(src="img/logo.png")
+		.header__nav
+			nav.nav
+				.nav__item
+					a.nav__link.nav__link_active(href="#calculator")
+						span Калькулятор
+				.nav__item
+					a.nav__link(href="#programs")
+						span Программы
+				.nav__item
+					a.nav__link(href="#about")
+						span О компании
+				.nav__item
+					a.nav__link(href="#faq")
+						span Ответы и вопросы
+				.nav__item
+					a.nav__link(href="#contacts")
+						span Контакты
+		.header__right
+			a.header__phone(href="tel:+8422425071")
+				span +7 (8422) 42-50-71
+			a.header__callback(data-modal="callback")
+				span Заказать звонок
+

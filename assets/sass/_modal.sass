@@ -1,0 +1,58 @@
+.modal
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-color: rgba(0,0,0,.85)
+	opacity: 0
+	padding: 35px 0
+	z-index: 0
+	-webkit-transition: all .3s
+	transition: all .3s
+	&._show
+		opacity: 1
+		z-index: 1001
+	&__overlay
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		z-index: 1
+	&__inner
+		position: relative
+		background-color: #ffffff
+		border-radius: 4px
+		margin: 0 auto
+		padding: 20px 30px
+		width: 100%
+		max-width: 360px
+		z-index: 2
+	&__header
+		position: relative
+		padding: 20px 0
+		z-index: 1
+		.title
+			color: #000000
+			font-size: 2.25em
+			font-weight: 100
+			text-align: center
+	&__bottom
+		position: relative
+		font-size: .92em
+		margin-top: 10px
+		z-index: 2
+
+.md-close
+  position: absolute
+  top: 17px
+  right: 17px
+  width: 18px
+  height: 18px
+  background: url('../img/cross.png') 0 0 no-repeat #ffffff
+  border: 0
+  text-indent: 9999px
+  outline: none
+  cursor: pointer
+  z-index: 10
