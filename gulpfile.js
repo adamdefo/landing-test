@@ -18,7 +18,8 @@ gulp.task('jade', function() {
 });
 
 gulp.task('sass', function() {
-    gulp.src(['./assets/sass/app.sass', '!./assets/sass/_*.sass'])
+    // gulp.src(['./assets/sass/*.sass', '!./assets/sass/_*.sass'])
+    gulp.src(['./assets/sass/*.sass'])
     .pipe(sass())
     .pipe(myth())
     .pipe(gulp.dest('./dev/css/'))

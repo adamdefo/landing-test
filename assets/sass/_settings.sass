@@ -31,13 +31,11 @@ html
 	height: 100%
 
 body
-	// background: #F8F8FA
 	background: #FFFFFF
 	color: #1a1a1a
 	font: 400 15px/1.5 $ff
 	margin: 0
 	padding: 0
-	height: 100%
 
 a
 	border-bottom: 1px solid transparent
@@ -47,9 +45,6 @@ a
 	-webkit-transition: all .15s
 	-moz-transition: all .15s
 	transition: all .15s
-	// &:link
-	// 	border-bottom-color: rgba(38, 123, 251, .3)
-	// 	color: $blue_light
 	&:hover
 		border-bottom-color: rgba(255, 109, 57, .3)
 		color: $green
@@ -62,8 +57,30 @@ img
 
 p
 	font-size: 1.5rem
-	line-height: 1.75
-	margin-bottom: 1.85em
+	line-height: 1.5
+	margin-bottom: 1.75em
 
 .center
 	text-align: center
+
+.list
+	list-style: none
+	padding: 0
+	margin: 0
+	& li
+		position: relative
+	&-marked
+		& li
+			font-size: 1.8rem
+			font-weight: 600
+			padding-left: 28px
+			margin: 15px 0
+			&:before
+				content: ''
+				position: absolute
+				background: url('../img/mark.png') 0 0 no-repeat
+				background-size: cover
+				top: 0
+				left: 0
+				width: 18px
+				height: 20px
