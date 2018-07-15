@@ -1,9 +1,30 @@
 doctype html
 html
-  include inc/head
-  body
-    .layout
-      include inc/header
-      main.main
-        include inc/hello
-    include inc/footer
+	include inc/head
+	body
+		.layout
+			include inc/header
+			main.main
+				include inc/hello
+				#map.map(style="width: 100%; height: 400px")
+		include inc/footer
+		.md
+			.md__overlay
+			.md__container
+				.md__inner
+					.md-close.js-md-close Закрыть
+					.md__header Заявка на обратный звонок
+					.md__content
+						form.form.js-form-request.md-form
+							.form__item
+								input.form__input(placeholder="Имя")
+							.form__item
+								input.form__input(placeholder="Введите ваш номер")
+							.form__item
+								.checkbox-box
+									label
+										input(type="checkbox")
+										span Согласен а обработку перс. данных
+							.form__button
+								button(type="button") Перезвоните мне
+								.caption Перезвоним в течение 15 минут

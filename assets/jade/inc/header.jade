@@ -3,7 +3,6 @@ header.header
 		.header__logo
 			a.logo(href="/")
 				img(src="img/logo.png")
-	
 		.header__nav
 			nav.nav
 				.nav__item
@@ -24,6 +23,22 @@ header.header
 		.header__right
 			a.header__phone(href="tel:+8422425071")
 				span +7 (8422) 42-50-71
-			a.header__callback(data-modal="callback")
+			a.header__callback.js-callback(data-modal="callback")
 				span Обратный звонок
 
+.nav-xs
+	.nav-xs__item
+		a.nav-xs__link
+			span Калькулятор
+	.nav-xs__item
+		a.nav-xs__link
+			span Программы
+	.nav-xs__item
+		a.nav-xs__link
+			span О компании
+	.nav-xs__item
+		a.nav-xs__link
+			span Ответы и вопросы
+	.nav-xs_item
+		a.nav-xs__link
+			span Контакты
