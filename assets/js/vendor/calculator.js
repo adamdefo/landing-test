@@ -75,11 +75,11 @@
 	// установка активного пункта у свичеров
 	Calculator.prototype._initSwitchers = function () {
 		var self = this;
-		this.monthSwitchCtrl.forEach(ctrl => {
+		this.monthSwitchCtrl.forEach(function(ctrl) {
 			ctrl.checked = +ctrl.value === self.month;
 		});
 
-		this.percentSwitchCtrl.forEach(ctrl => {
+		this.percentSwitchCtrl.forEach(function(ctrl) {
 			ctrl.checked = ctrl.value === self.percent;
 		});
 	};
@@ -99,14 +99,14 @@
 			self.calculate();
 		});
 
-		this.monthSwitchCtrl.forEach(ctrl => {
+		this.monthSwitchCtrl.forEach(function(ctrl) {
 			ctrl.addEventListener('change', function(ev) {
 				self.month = this.value;
 				self.calculate();
 			});
 		});
 
-		this.percentSwitchCtrl.forEach(ctrl => {
+		this.percentSwitchCtrl.forEach(function(ctrl) {
 			ctrl.addEventListener('change', function(ev) {
 				self.percent = this.value;
 				self.calculate();

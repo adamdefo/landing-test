@@ -1,6 +1,6 @@
-var calculator = new Calculator('#calculator');
-
 $(function() {
+	var calculator = new Calculator('#calculator');
+
 	$('#summa').rangeslider({
 		polyfill: false,
 		onInit: function() {
