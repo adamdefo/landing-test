@@ -13,7 +13,8 @@ html
 			.md__container
 				.md__inner
 					.md-close.js-md-close Закрыть
-					.md__header Заявка на обратный звонок
+					.md__header
+						.title Заявка на обратный звонок
 					.md__content
 						form.form.js-form-request.md-form
 							.form__item
@@ -26,5 +27,5 @@ html
 										input(type="checkbox")
 										span Согласен а обработку перс. данных
 							.form__button
-								button(type="button") Перезвоните мне
+								button.btn.js-send-callback(type="button") Перезвоните мне
 								.caption Перезвоним в течение 15 минут

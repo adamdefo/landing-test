@@ -35,8 +35,10 @@
 	width: 100%
 	z-index: 10
 
-@media (max-width: 1600px)
-    .b-calculator
+@media (max-width: 768px)
+	.b-calculator
+		& > .container
+			padding: 0
 
 .switcher
 	&__item
@@ -89,6 +91,24 @@
 		&_txt
 			font-size: 1.6rem
 			padding: 18px 30px
+
+@media (max-width: 768px)
+	.switcher
+		&__item.responsive
+			width: 50%
+		&__item.responsive &__label
+			font-size: 1.8rem
+			padding: 24px 10px
+			width: 100%
+		&__item.responsive &__radio
+			&:checked + .switcher__label_txt
+				padding-top: 25px
+				padding-bottom: 25px
+@media (max-width: 480px)
+	.switcher
+		&__item.responsive &__label
+			font-size: 1.35rem
+			padding: 24px 0
 
 .master-klass
 	display: table
@@ -191,60 +211,6 @@
 		transform: translate3d(0, 30px, 0)
 	100%
 		transform: translate3d(0, 0, 0)
-
-// иконки соц. сетей
-.social
-	text-align: center
-	padding: 0
-	&__item
-		display: inline-block
-		vertical-align: middle
-		margin: 0 10px
-		height: 34px
-		width: 34px
-	&__link
-		display: block
-		border: 0
-		border-radius: 50%
-		outline: none
-		position: relative
-		height: 100%
-		width: 100%
-		& > span
-			opacity: 0
-		&:before
-			content: ''
-			position: absolute
-			background-position: center center
-			background-repeat: no-repeat
-			height: 16px
-			width: 16px
-			top: 50%
-			left: 50%
-			margin-top: -8px
-			margin-left: -8px
-		&_vk
-			background-color: #5D80A3
-			&:before
-				background-image: url('../img/vk.svg')
-		&_telegram
-			background-color: #3BABDE
-			&:before
-				background-image: url('../img/telegram.svg')
-		&_twitter
-			background-color: #2BAEE8
-			&:before
-				background-image: url('../img/twitter.svg')
-		&_instagram
-			background-color: #D7317B
-			&:before
-				background-image: url('../img/instagram.svg')
-		&_whatsapp
-			background-color: #40c351
-			&:before
-				background-image: url('../img/whatsapp.svg')
-		&:hover
-			background-color: $pink_hover
 
 .chain__list
 	margin: 0

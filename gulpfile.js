@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync');
 
 gulp.task('jade', function() {
-    gulp.src(['./assets/jade/**/*', '!./assets/jade/_*.jade'])
+    gulp.src(['./assets/jade/*.jade', '!./assets/jade/_*.jade'])
         .pipe(jade({
             pretty: true
         })).on('error', console.log)
@@ -54,13 +54,10 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('default', ['browser-sync', 'sass', 'jade', 'js', 'images', 'fonts'], function() {
-
     gulp.watch('./assets/sass/**/*.sass', ['sass']);
     gulp.watch('./assets/jade/**/*.jade', ['jade']);
     gulp.watch('./assets/js/**/*', ['js']);
 });
-
-
 
 // сборка проекта в продакшн
 gulp.task('build', function() {

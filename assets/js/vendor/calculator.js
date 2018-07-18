@@ -1,8 +1,5 @@
 /**
- * http://www.adamdefo.ru
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
+ * Aleksey Kondratyev
  *
  */
 ;(function(window) {

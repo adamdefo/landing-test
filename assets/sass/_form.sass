@@ -36,23 +36,8 @@
     position: relative
     display: inline-block
     vertical-align: middle
-    margin: 15px 0
-    padding: 5px 0 0
+    margin-bottom: 15px
     width: 100%
-    &-modal
-      border-bottom: 2px solid #999999
-    &:last-child
-      margin-bottom: 0
-    &._focus
-      border-color: #99ffeb
-    &_btn
-      border: 0
-      padding: 5px 0
-  &__item._focus &__lbl, &__item._noempty &__lbl
-    top: -10px
-    color: #7f7f7f
-    font-size: .7em
-    font-weight: 400
   &__label
     display: inline-block
     vertical-align: middle
@@ -66,24 +51,19 @@
   &__input
     position: relative
     background-color: #ffffff
-    border: 0
-    color: #b9b8b8
-    font-size: .85em
-    font-weight: bold
-    letter-spacing: 0.05em
-    text-transform: uppercase
-    padding: 15px 5px 15px 0
+    border: 1px solid #cccccc
+    border-radius: 2px
+    color: #555555
+    font-size: 1.6rem
+    padding: 1.6rem 1.8rem
     outline: none
-    max-width: 250px
+    width: 250px
     width: 100%
-    z-index: 2
     -webkit-transition: all 0.3s
     -moz-transition: all 0.3s
     transition: all 0.3s
-    &_datepicker
-      max-width: 150px
     &:focus
-      color: #252525
+      border-color: #0c8d35
   &__select
     border: 0
     color: #b9b8b8
@@ -97,9 +77,16 @@
     transition: all 0.3s
     &:focus
       color: #252525
-
-.form__btn-next
-  text-align: right
+  &__button
+    text-align: center
+    .btn
+      width: 100%
+    .caption
+      margin-top: 15px
+      text-align: center
+      color: #9ea1ac
+      font-size: 1.3rem
+      line-height: 1.5
 
 
 .steps
