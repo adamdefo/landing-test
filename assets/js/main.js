@@ -1,3 +1,9 @@
+// валидатор на email
+var validateEmail = function(email) {
+	var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	return reg.test(email);
+}
+
 $(function() {
 	var calculator = new Calculator('#calculator');
 
@@ -25,7 +31,7 @@ $(function() {
 		onSlideEnd: function(position, value) {}
 	});
 
-	$('.js-callback').on('click', function() {
+	$('.js-show-callback').on('click', function() {
 		$('.md').addClass('_show');
 	});
 
@@ -35,6 +41,53 @@ $(function() {
 
 	$('.md__overlay').on('click', function() {
 		$(this).parent().removeClass('_show');
+	});
+
+	$('.js-phone').mask('+7 (999) 999-9999');
+	
+	// заявка на обратный звонок
+	var $formCallback = $(".js-form-callback");
+	$(".js-send-callback").on('click', function(ev) {
+		console.log('send callback')
+		ev.preventDefault();
+		var error = 0;
+	
+		var name = $formCallback.find('input[name=name]').val();
+		if (!name) {
+			error++;
+			$formCallback.find('input[name=name]').parent().addClass("_error");
+		};
+	
+		var phone = $formCallback.find('input[name=phone]').val();
+		if (!phone) {
+			error++;
+			$formCallback.find('input[name=phone]').parent().addClass("_error");
+		};
+	
+		if(error == 0) {
+			$.ajax({
+				async: true,
+				type: "POST",
+				url: "/ajax/callback.php",
+				dataType: "json",
+				data: {name: name, phone: phone, email: email, message: message},
+				success: function(data) {
+					console.log(data)
+				},
+				error: function(data) {
+					// if (data.status == 200) {
+					// 	alert('Сообщение отправлено!');
+					// 	$.each(formInputs, function() {
+					// 		$(this).val('');
+					// 	});
+					// } else {
+					// 	console.log('Статус ошибки: ' + data.status);
+					// }
+				}
+			});
+		};
+	
+		return false;
 	});
 });
 

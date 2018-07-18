@@ -16,11 +16,11 @@ html
 					.md__header
 						.title Заявка на обратный звонок
 					.md__content
-						form.form.js-form-request.md-form
+						form.form.js-form-callback(action="ajax/callback.php" method="POST")
 							.form__item
-								input.form__input(placeholder="Имя")
+								input.form__input(placeholder="Имя" name="name")
 							.form__item
-								input.form__input(placeholder="Введите ваш номер")
+								input.form__input.js-phone(placeholder="Введите ваш номер" name="phone")
 							.form__item
 								.checkbox-box
 									label
