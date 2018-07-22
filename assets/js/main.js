@@ -1,3 +1,12 @@
+// проверяет значение в инпуте
+var validateInput = function(input) {
+	var error = 0
+	if (!input.value) {
+		error++;
+	}
+	return !error;
+}
+
 // валидатор на email
 var validateEmail = function(email) {
 	var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -31,6 +40,77 @@ $(function() {
 		onSlideEnd: function(position, value) {}
 	});
 
+	// маска номера телефона
+	$('.js-phone').mask('+7 (999) 999-9999');
+
+	var $answerForm = $('.answer-form'),
+		$answerFormPhone = $answerForm.find('.answer-form__phone > strong'),
+		$answerFormBtn = $answerForm.find('.answer-form__btn > button');
+
+	// заявка на обратный звонок
+	var $callbackForm = document.querySelector('.js-form-callback'), // форма
+		$clientName = $callbackForm.querySelector('input[name=name]'), // инпут Имя
+		$clientPhone = $callbackForm.querySelector('input[name=phone]'), // инпут Номер телефона
+		$clientIsAgree = $callbackForm.querySelector('input[name=isAgree]'), // чекбокс
+		$sendCallback = $callbackForm.querySelector('.js-send-callback'); // кнопка Перезвоните
+
+	var validateCallbackForm = function() {
+		if (validateInput($clientName) && validateInput($clientPhone) && $clientIsAgree.checked) {
+			$sendCallback.disabled = false;
+		} else {
+			$sendCallback.disabled = true;
+		}
+	}
+
+	$clientName.addEventListener('blur', function() {
+		validateCallbackForm();
+	});
+
+	$clientPhone.addEventListener('blur', function() {
+		validateCallbackForm();
+	});
+
+	$clientIsAgree.addEventListener('change', function() {
+		validateCallbackForm();
+	});
+
+
+	$sendCallback.addEventListener('click', function(event) {
+		event.preventDefault();
+		var error = 0;
+	
+		var name = $clientName.value;
+		if (!name) {
+			classie.add($clientName, '_error');
+			error++;
+		};
+	
+		var phone = $clientPhone.value;
+		if (!phone) {
+			classie.add($clientPhone, '_error');
+			error++;
+		};
+	
+		if(!error) {
+			$.ajax({
+				async: true,
+				type: "POST",
+				url: "/ajax/callback.php",
+				dataType: "json",
+				data: {name: name, phone: phone},
+				success: function(data) {
+					console.log(data)
+					$answerFormPhone.text(phone);
+				},
+				error: function(data) {
+					console.log(data)
+				}
+			});
+		};
+	
+		return false;
+	});
+
 	$('.js-show-callback').on('click', function() {
 		$('.md').addClass('_show');
 	});
@@ -43,52 +123,11 @@ $(function() {
 		$(this).parent().removeClass('_show');
 	});
 
-	$('.js-phone').mask('+7 (999) 999-9999');
-	
-	// заявка на обратный звонок
-	var $formCallback = $(".js-form-callback");
-	$(".js-send-callback").on('click', function(ev) {
-		console.log('send callback')
-		ev.preventDefault();
-		var error = 0;
-	
-		var name = $formCallback.find('input[name=name]').val();
-		if (!name) {
-			error++;
-			$formCallback.find('input[name=name]').parent().addClass("_error");
-		};
-	
-		var phone = $formCallback.find('input[name=phone]').val();
-		if (!phone) {
-			error++;
-			$formCallback.find('input[name=phone]').parent().addClass("_error");
-		};
-	
-		if(error == 0) {
-			$.ajax({
-				async: true,
-				type: "POST",
-				url: "/ajax/callback.php",
-				dataType: "json",
-				data: {name: name, phone: phone, email: email, message: message},
-				success: function(data) {
-					console.log(data)
-				},
-				error: function(data) {
-					// if (data.status == 200) {
-					// 	alert('Сообщение отправлено!');
-					// 	$.each(formInputs, function() {
-					// 		$(this).val('');
-					// 	});
-					// } else {
-					// 	console.log('Статус ошибки: ' + data.status);
-					// }
-				}
-			});
-		};
-	
-		return false;
+	// закрывает модалку с формой обратного звонка
+	$answerFormBtn.on('click', function() {
+		$('.md-callback').removeClass('_show');
 	});
+
 });
 
 var myMap, myPlacemark;
