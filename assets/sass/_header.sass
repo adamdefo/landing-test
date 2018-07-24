@@ -5,8 +5,10 @@
 	z-index: 100
 	&__container
 		position: relative
-		padding: 2.7rem 4rem 3.5rem
-		max-width: 100%
+		margin: 0 auto
+		padding: 2.7rem 4rem 4.5rem
+		max-width: 1920px
+		width: 100%
 	&__logo
 		position: absolute
 		top: 2.7rem
@@ -26,7 +28,7 @@
 	&__nav
 		display: block
 		max-width: 1160px
-		margin: 20px auto 0
+		margin: 0 auto
 		text-align: left
 	&__right
 		position: absolute
@@ -40,6 +42,8 @@
 		font-weight: 700
 		line-height: 1
 		margin-bottom: 1.35rem
+		&-xs
+			display: none
 	&__callback
 		background-color: #93c11c
 		border: 0
@@ -67,13 +71,15 @@
 		&__nav
 			max-width: 920px
 			margin-left: 211px
-@media (max-width: 1200px)
+			padding-top: 15px
+@media (max-width: 1250px)
 	.header
 		&__container
 			padding: 2.7rem 2rem 3.5rem
 		&__nav
 			max-width: 720px
 			margin-left: 231px
+			padding-top: 0
 @media (max-width: 1100px)
 	.header
 		&__nav
@@ -81,5 +87,26 @@
 			max-width: 630px
 @media (max-width: 980px)
 	.header
+		&__container
+			padding: 2rem
 		&__nav
 			display: none
+		&__logo
+			position: relative
+			top: 0
+			left: 0
+			display: inline-block
+			vertical-align: middle
+		&__phone
+			margin-bottom: 0 
+			font-size: 3rem
+		&__phone-xs
+			display: inline-block
+			vertical-align: middle
+			margin-left: 2rem
+			// padding-top: 1rem
+			
+		&__right
+			display: none
+	.logo
+		width: 170px

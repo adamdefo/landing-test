@@ -43,9 +43,9 @@ $(function() {
 	// маска номера телефона
 	$('.js-phone').mask('+7 (999) 999-9999');
 
-	var $answerForm = $('.answer-form'),
-		$answerFormPhone = $answerForm.find('.answer-form__phone > strong'),
-		$answerFormBtn = $answerForm.find('.answer-form__btn > button');
+	var $answerForm = document.querySelector('.answer-form'),
+		$answerFormPhone = $answerForm.querySelector('.answer-form__phone > strong'),
+		$answerFormBtn = $answerForm.querySelector('.answer-form__btn > button');
 
 	// заявка на обратный звонок
 	var $callbackForm = document.querySelector('.js-form-callback'), // форма
@@ -74,6 +74,17 @@ $(function() {
 		validateCallbackForm();
 	});
 
+	var resetForm = function() {
+		setTimeout(function () {
+			classie.remove($callbackForm, '_hide');
+			classie.remove($answerForm, '_show');
+			$('.md__header > .title').text('Заявка на обратный звонок');
+			$clientName.value = '';
+			$clientPhone.value = '';
+			$clientIsAgree.checked = false;	
+			$sendCallback.disabled = true;
+		}, 300);
+	}
 
 	$sendCallback.addEventListener('click', function(event) {
 		event.preventDefault();
@@ -99,15 +110,17 @@ $(function() {
 				dataType: "json",
 				data: {name: name, phone: phone},
 				success: function(data) {
-					console.log(data)
-					$answerFormPhone.text(phone);
+					$('.md__header > .title').text('Спасибо');
+					classie.add($callbackForm, '_hide');
+					classie.add($answerForm, '_show');
+					$answerFormPhone.innerText = phone;
 				},
 				error: function(data) {
 					console.log(data)
 				}
 			});
 		};
-	
+
 		return false;
 	});
 
@@ -117,15 +130,18 @@ $(function() {
 
 	$('.js-md-close').on('click', function() {
 		$(this).parent().parent().parent().removeClass('_show');
+		resetForm();
 	});
 
 	$('.md__overlay').on('click', function() {
 		$(this).parent().removeClass('_show');
+		resetForm();
 	});
 
 	// закрывает модалку с формой обратного звонка
-	$answerFormBtn.on('click', function() {
+	$answerFormBtn.addEventListener('click', function() {
 		$('.md-callback').removeClass('_show');
+		resetForm();
 	});
 
 });
