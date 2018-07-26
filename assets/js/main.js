@@ -165,14 +165,23 @@ var myMap, myPlacemark;
 ymaps.ready(initMap);
 function initMap() { 
 	myMap = new ymaps.Map("map", {
-		center: [55.76, 37.64],
-		zoom: 13,
-		controls: ['zoomControl', 'fullscreenControl']
+		center: [54.32255725910652,48.401403088097844],
+		zoom: 18,
+		controls: ['zoomControl']
 	});
-	myPlacemark = new ymaps.Placemark([55.76, 37.64], {
-		hintContent: 'Подсказка',
-		balloonContent: 'Содержимое метки'
-	});
+	myPlacemark = new ymaps.Placemark(
+		myMap.getCenter(), 
+		{
+			hintContent: 'Подсказка',
+			balloonContent: 'Содержимое метки'
+		},
+		{
+			iconLayout: 'default#image',
+            iconImageHref: '../img/point.png',
+            iconImageSize: [40, 54],
+            iconImageOffset: [-20, -54]
+		}
+	);
 	myMap.geoObjects.add(myPlacemark);
 	myMap.behaviors.disable('scrollZoom');
 };

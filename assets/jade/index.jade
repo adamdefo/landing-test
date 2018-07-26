@@ -8,7 +8,23 @@ html
 				include inc/hello
 				include inc/programs
 				section.section.section_map
-					#map.map(style="width: 100%; height: 400px")
+					#map.map
+					.map__box
+						.map__inner
+							.map__content
+								.map__content-row
+									label Адрес:
+									p г. Ульяновск, 2-й пер. Мира,<br> д. 28/3 помещение 6-10
+								.map__content-row
+									label Телефон:
+									p 
+										a(href="tel:+8422425071")
+											span +7 (8422) 42-50-71
+								.map__content-row
+									label Телефон:
+									p Будни с 9:00 до 19:00;<br> Суббота: с 10:00 до 13:00,<br> Воскресенье: выходной
+
+
 		include inc/footer
 		.md.md-callback
 			.md__overlay
