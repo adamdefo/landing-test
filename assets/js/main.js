@@ -177,8 +177,8 @@ function initMap() {
 		},
 		{
 			iconLayout: 'default#image',
-            iconImageHref: '../img/point.png',
-            iconImageSize: [40, 54],
+            iconImageHref: '../img/point_hover.png',
+            iconImageSize: [54, 78],
             iconImageOffset: [-20, -54]
 		}
 	);
