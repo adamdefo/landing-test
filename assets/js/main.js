@@ -144,6 +144,21 @@ $(function() {
 		resetForm();
 	});
 
+	// мобильное меню
+	var $burger = document.querySelector('.burger'),
+		$mobileNav = document.querySelector('.nav-xs');
+		$mobileNavClose = document.querySelector('.js-nav-close');
+
+	$burger.addEventListener('click', function(event) {
+		classie.add($mobileNav, '_show');
+		classie.add(document.body, '_overflow');
+	});
+
+	$mobileNavClose.addEventListener('click', function(event) {
+		classie.remove($mobileNav, '_show');
+		classie.remove(document.body, '_overflow');
+	});
+
 });
 
 var myMap, myPlacemark;

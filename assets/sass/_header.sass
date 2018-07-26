@@ -28,7 +28,7 @@
 	&__nav
 		display: block
 		max-width: 1160px
-		margin: 0 auto
+		margin: 1rem auto 0
 		text-align: left
 	&__right
 		position: absolute
@@ -71,7 +71,6 @@
 		&__nav
 			max-width: 920px
 			margin-left: 211px
-			padding-top: 15px
 @media (max-width: 1250px)
 	.header
 		&__container
@@ -79,16 +78,17 @@
 		&__nav
 			max-width: 720px
 			margin-left: 231px
-			padding-top: 0
 @media (max-width: 1100px)
 	.header
+		&__container
+			padding: 2.7rem 2rem 2.5rem
 		&__nav
-			margin-top: 0
+			margin-top: .5rem
 			max-width: 630px
 @media (max-width: 980px)
 	.header
 		&__container
-			padding: 2rem
+			padding: 1rem 2rem
 		&__nav
 			display: none
 		&__logo
@@ -104,9 +104,11 @@
 			display: inline-block
 			vertical-align: middle
 			margin-left: 2rem
-			// padding-top: 1rem
-			
 		&__right
 			display: none
 	.logo
 		width: 170px
+@media (max-width: 580px)
+	.header
+		&__phone-xs
+			display: none

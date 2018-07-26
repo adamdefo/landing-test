@@ -28,20 +28,25 @@ header.header
 				span +7 (8422) 42-50-71
 			a.header__callback.js-show-callback(data-modal="callback")
 				span Обратный звонок
+		button.burger(type="button")
 
-.nav-xs
-	.nav-xs__item
-		a.nav-xs__link
-			span Калькулятор
-	.nav-xs__item
-		a.nav-xs__link
-			span Программы
-	.nav-xs__item
-		a.nav-xs__link
-			span О компании
-	.nav-xs__item
-		a.nav-xs__link
-			span Ответы и вопросы
-	.nav-xs_item
-		a.nav-xs__link
-			span Контакты
+nav.nav.nav-xs
+	.nav-xs__container
+		button.nav-xs__close.js-nav-close(type="button") Закрыть
+		.nav-xs__box
+			ul.nav__list.nav-xs__list
+				li.nav-xs__item
+					a.nav-xs__link
+						span Калькулятор
+				li.nav-xs__item
+					a.nav-xs__link
+						span Программы
+				li.nav-xs__item
+					a.nav-xs__link
+						span О компании
+				li.nav-xs__item
+					a.nav-xs__link
+						span Ответы и вопросы
+				li.nav-xs__item
+					a.nav-xs__link
+						span Контакты
