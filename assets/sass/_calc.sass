@@ -29,12 +29,13 @@
         width: 100%
         max-width: 202px
         &:after
-            content: 'Р'
+            content: '9'
+            font-family: 'PT Rouble Sans'
+            font-size: 3rem
             position: absolute
-            top: 9px
+            top: 8px
             right: 10px
-            font-size: 2.4rem
-            font-weight: 700
+            line-height: 1
     &__input
         display: inline-block
         vertical-align: top
@@ -73,6 +74,14 @@
             & span
                 color: #3d3d3d
                 font-size: 5.4rem
+                &.rubl
+                    &:after
+                        content: '9'
+                        display: inline
+                        font-family: 'PT Rouble Sans'
+                        font-size: 5.4rem
+                        margin-left: 1rem
+                        line-height: 1
     &__links
         position: relative
         width: 100%

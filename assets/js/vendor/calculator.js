@@ -127,12 +127,12 @@
 			if (this.checkbox.checked) {
 				this.total += this.total * 0.01;
 			}
-			this.$total.innerText = this.total + ' р.';
+			this.$total.innerText = this.total;
 			this.dohod = Number(this.refilCtrl.value*this.month);
 			if (this.checkbox.checked) {
 				this.dohod += this.dohod * 0.01;
 			}
-			this.$dohod.innerText = this.dohod + ' р.';
+			this.$dohod.innerText = this.dohod;
 		};
 	};
 

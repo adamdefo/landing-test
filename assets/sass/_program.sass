@@ -24,8 +24,19 @@
 		color: #3d3d3d
 		font-size: 1.6rem
 		font-weight: 700
-		& .itogo
+		&.rubl
+			&:after
+				content: '7'
+				display: inline
+				font-family: 'PT Rouble Sans'
+				font-size: 1.8rem
+				margin-left: .5rem
+				line-height: 1
+		&.itogo
 			font-size: 3rem
+			&.rubl
+				&:after
+					font-size: 3rem
 		&._last
 			margin-top: 1.5rem
 	&__title
